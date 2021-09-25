@@ -28,7 +28,8 @@ def getid():
 '''
 
 @app.route('/tic-tac-toe/<battleId>', methods=['POST'])
-def battleId(battleId):
+def id(battleId):
+    id = getid()
     return battleId
 def chess():
     data = request.get_json()
