@@ -26,3 +26,13 @@ def getid():
   "position": "SE"
 }
 '''
+
+@app.route('/tic-tac-toe/<battleId>', methods=['POST'])
+def battleId(battleId):
+    return battleId
+def chess():
+    data = request.get_json()
+    logging.info('data sent for chess {}'.format(data))
+    action = data.get('action')
+    position = data.get('position')
+    return json.dumps(action, position)
