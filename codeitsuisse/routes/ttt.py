@@ -1,5 +1,8 @@
 import logging
 import json
+import requests
+import time
+import random
 
 from flask import request, jsonify
 
@@ -7,14 +10,51 @@ from codeitsuisse import app
 
 logger = logging.getLogger(__name__)
 
+def calc_move(position, chara):
+    move = {}
+    plist = ['NW', 'N', 'NE', 'W', 'C', 'E', 'SW', 'S', 'SE']
+    for i in position:
+        if i in plist:
+            plist.remove(i)
+    move['player'] = chara
+    move['action'] = 'putSymbol'
+    move['position'] = random.choice(plist)
+    return move
+
 @app.route('/tic-tac-toe', methods=['POST'])
 def getid():
     data = request.get_json()
     logging.info('data sent for getid {}'.format(data))
     battleId = data.get('battleId')
     logging.info('battleId :{}'.format(battleId))
-    return json.dumps(battleId)
+    # print(battleId)
+    start_url = 'https://cis2021-arena.herokuapp.com/tic-tac-toe/start/{}'.format(battleId)
+    play_url = 'https://cis2021-arena.herokuapp.com/tic-tac-toe/play/{}'.format(battleId)
 
+    a = requests.session()
+    for i in range(9):
+        position = dict()
+        r = a.get(start_url)
+        # a = requests.get('https://cis2021-arena.herokuapp.com/tic-tac-toe/start/acwcwcwc') # for test connection
+        message = r.json()
+        logging.info('data get for message {}'.format(r))
+        try:
+            chara = message['youAre']
+        except: pass
+
+        time.sleep(2)
+        try:
+            if message['action'] == 'putSymbol':
+                position[(message['position'])]=message['player']
+        except: pass
+        move = calc_move(position, chara = '0')
+        logging.info('the move is {}'.format(move))
+        a.post(play_url, data = move)
+
+
+
+
+    return json.dumps(battleId)
 '''
 |NW|N |NE|
 +--+--+--+
