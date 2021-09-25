@@ -6,24 +6,32 @@ from flask import request, jsonify
 from codeitsuisse import app
 
 logger = logging.getLogger(__name__)
+global battleId
 
 @app.route('/tic-tac-toe', methods=['POST'])
 def getid():
     data = request.get_json()
-    logging.info("data sent for getid {}".format(data))
-    battleId = data.get("battleId")
-    logging.info("battleId :{}".format(battleId))
+    logging.info('data sent for getid {}'.format(data))
+    battleId = data.get('battleId')
+    logging.info('battleId :{}'.format(battleId))
     return json.dumps(battleId)
 
 '''
-def evaluate():
-    data = request.get_json()
-    logging.info("data sent for evaluation {}".format(data))
-    inputValue = data.get("input")
-    result = inputValue * inputValue
-    logging.info("My result :{}".format(result))
-    return json.dumps(result)
+|NW|N |NE|
++--+--+--+
+|W |C |E |
++--+--+--+
+|SW|S |SE|
+{
+  "action": "putSymbol",
+  "position": "SE"
+}
 '''
 
-
-
+@app.route('/tic-tac-toe/play/{}'.format(battleId), methods=['POST'])
+def chess():
+    data = request.get_json()
+    logging.info('data sent for chess {}'.format(data))
+    action = data.get('action')
+    position = data.get('position')
+    return json.dumps(action, position)
