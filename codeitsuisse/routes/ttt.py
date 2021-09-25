@@ -31,10 +31,9 @@ def getid():
     start_url = 'https://cis2021-arena.herokuapp.com/tic-tac-toe/start/{}'.format(battleId)
     play_url = 'https://cis2021-arena.herokuapp.com/tic-tac-toe/play/{}'.format(battleId)
 
-    a = requests.session()
     for i in range(9):
         position = dict()
-        r = a.get(start_url)
+        r = requests.get(start_url)
         # a = requests.get('https://cis2021-arena.herokuapp.com/tic-tac-toe/start/acwcwcwc') # for test connection
         message = r.json()
         logging.info('data get for message {}'.format(r))
@@ -49,8 +48,7 @@ def getid():
         except: pass
         move = calc_move(position, chara = '0')
         logging.info('the move is {}'.format(move))
-        a.post(play_url, data = move)
-
+        requests.post(play_url, data = move)
 
 
 
