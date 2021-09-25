@@ -30,6 +30,8 @@ def getid():
     # print(battleId)
     start_url = 'https://cis2021-arena.herokuapp.com/tic-tac-toe/start/{}'.format(battleId)
     play_url = 'https://cis2021-arena.herokuapp.com/tic-tac-toe/play/{}'.format(battleId)
+    logging.info('start_url is {}'.format(start_url))
+    logging.info('play_url is {}'.format(play_url))
 
     for i in range(9):
         position = dict()
