@@ -6,7 +6,6 @@ from flask import request, jsonify
 from codeitsuisse import app
 
 logger = logging.getLogger(__name__)
-global battleId
 
 @app.route('/tic-tac-toe', methods=['POST'])
 def getid():
@@ -27,11 +26,3 @@ def getid():
   "position": "SE"
 }
 '''
-
-@app.route('/tic-tac-toe/play/{}'.format(battleId), methods=['POST'])
-def chess():
-    data = request.get_json()
-    logging.info('data sent for chess {}'.format(data))
-    action = data.get('action')
-    position = data.get('position')
-    return json.dumps(action, position)
