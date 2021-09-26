@@ -21,7 +21,7 @@ def calc_move(position, chara):
     move['position'] = random.choice(plist)
     return move
 
-@app.route('/tic-tac-toe', methods=['POST'])
+@app.route('/tic-tac-toe-mine', methods=['POST'])
 def getid():
     data = request.get_json()
     logging.info('data sent for getid {}'.format(data))
@@ -52,8 +52,6 @@ def getid():
         logging.info('the move is {}'.format(move))
         requests.post(play_url, data = move)
 
-
-
     return json.dumps(battleId)
 '''
 |NW|N |NE|
@@ -66,14 +64,3 @@ def getid():
   "position": "SE"
 }
 '''
-
-@app.route('/tic-tac-toe/<battleId>', methods=['POST'])
-def id(battleId):
-    id = getid()
-    return battleId
-def chess():
-    data = request.get_json()
-    logging.info('data sent for chess {}'.format(data))
-    action = data.get('action')
-    position = data.get('position')
-    return json.dumps(action, position)
