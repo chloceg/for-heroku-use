@@ -7,7 +7,11 @@ logger = logging.getLogger(__name__)
 
 @app.route('/assignment_2_7', methods=['POST'])
 def main():
-    heap=[22,18,20,17,3,16,14,7,12,19,9]
+    try:
+        data = request.get_json()
+        logging.info("data sent for evaluation {}".format(data))
+        heap = data.get("input")
+    # heap=[22,18,20,17,3,16,14,7,12,19,9]
     
     def minheap(heap,i):
         left=2*i+1
@@ -25,5 +29,5 @@ def main():
     n = int(len(heap)//2-1)
     for i in range(n,-1,-1):
         minheap(heap,i)
-    
-    print(heap)
+    logging.info("My result :{}".format(heap))
+    return json.dumps(result)
