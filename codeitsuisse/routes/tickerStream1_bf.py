@@ -9,6 +9,12 @@ logger = logging.getLogger(__name__)
 
 @app.route('/tickerStreamPart1', methods=['POST'])
 def to_cumulative():
+    # data = request.get_json()
+    # logging.info("data sent for evaluation {}".format(data))
+    # inputValue = data.get("input")
+    # result = inputValue * inputValue
+    # logging.info("My result :{}".format(result))
+    # return json.dumps(result)
     d = {}
     raw = request.get_json()
     logging.info("data sent is {}".format(raw))
@@ -25,7 +31,6 @@ def to_cumulative():
         else:
             d[time].append([ticker, quant, price])
     r = {}
-    output = []
     for i in d:
         length = len(d[i])
         for j in range(length):
@@ -38,9 +43,9 @@ def to_cumulative():
             out += i
         for k in r.keys():
             res = ','.join([k, str(r[k][0]), str(r[k][1])])
-            entry = out + ',' + res
-            output.append(entry)
-    r = {"output": output}
-    logging.info("My part1 result :{}".format(r))
-    return json.dumps(r)
-    # return [out]
+            out = out + ',' + res
+        
+        r = {"output": [out]}
+        logging.info("My part1 result :{}".format(r))
+        return json.dumps(r)
+        # return [out]
