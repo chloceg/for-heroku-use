@@ -8,7 +8,7 @@ from codeitsuisse import app
 logger = logging.getLogger(__name__)
 
 @app.route('/tickerStreamPart2', methods=['POST'])
-def evaluate():
+def to_cumulative_delayed():
 # def to_cumulative_delayed(stream: list, quantity_block: int):
     raw = request.get_json()
     logging.info("data sent is {}".format(raw))
