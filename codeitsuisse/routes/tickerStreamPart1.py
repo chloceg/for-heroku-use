@@ -44,6 +44,8 @@ def to_cumulative():
         for k in r.keys():
             res = ','.join([k, str(r[k][0]), str(r[k][1])])
             out = out + ',' + res
-        logging.info("My part1 result :{}".format([out]))
-        return json.dumps([out])
+        
+        r = {"output": [out]}
+        logging.info("My part1 result :{}".format(r))
+        return json.dumps(r)
         # return [out]

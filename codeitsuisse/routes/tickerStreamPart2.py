@@ -50,5 +50,6 @@ def to_cumulative_delayed():
                 cu_noti += round(int(d[i][2])*float(d[i][3]), 1)
                 cu_quan += int(d[i][2])
     res.sort(key = lambda x: x.split(',')[0])
-    logging.info("My part2 result :{}".format(res))
-    return json.dumps(res)
+    r = {"output": res}
+    logging.info("My part2 result :{}".format(r))
+    return json.dumps(r)
