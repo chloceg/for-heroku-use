@@ -17,7 +17,7 @@ def stigwarmup():
         result.append(stig(i['questions'],i['maxRating']))
     
     logging.info("result: {}".format(result))
-    return json.dumps(result)
+    return jsonify(result)
 
 def stig(questions,maxRating):
     questions = sorted(questions, key=lambda d: d['lower']) 
