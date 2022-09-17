@@ -73,7 +73,7 @@ def part1():
     raw = request.get_json()
     logging.info("data sent is {}".format(raw))
     input = raw["lookupTable"]
-    lookupTable = input["lookupTable"]
+    lookupTable = input
     for key, values in lookupTable.items():
         c.execute("INSERT INTO lookuptable (addr,ip) \
       VALUES (?,?)",(key, values))
