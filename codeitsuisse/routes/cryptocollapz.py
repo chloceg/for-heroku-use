@@ -23,26 +23,22 @@ def crypto_collapz_raw(input):
     return res
 
 def findMax(num, map):
-    # Memoise past max values
     if num in map:
         return map[num]
     map[num] = num
     cur = num    
     while True:
-        if isOdd(cur):
+        if int(cur)&1:
             cur = cur * 3 + 1
-            map[num] = max(map[num], cur)   # Update local max value
+            map[num] = max(map[num], cur)   # local 
         else:
-            cur /= 2
+            cur = cur // 2
         if cur in map:
-            map[num] = max(map[num], map[cur])  # Check if local max > potential max
+            map[num] = max(map[num], map[cur])  # local  > current
             break
         if cur == num:
             break
     return int(map[num])
-
-def isOdd(item):
-    return item % 2 != 0
 
 
 @app.route('/cryptocollapz', methods=['POST'])
