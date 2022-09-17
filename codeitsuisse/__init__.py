@@ -8,3 +8,4 @@ import codeitsuisse.routes.tickerStreamPart2
 import codeitsuisse.routes.cryptocollapz
 import codeitsuisse.routes.calendar
 import codeitsuisse.routes.Rubiks_cube
+import codeitsuisse.routes.swiss_stig
