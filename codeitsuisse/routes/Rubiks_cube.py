@@ -17,7 +17,8 @@ def mian():
     state = raw["state"]
     res = []
     if ops == '':
-        return state
+        r = {"state":state}
+        return json.dumps(r)
     elif len(ops) < 2:
         res.append(ops[0])
     else:
