@@ -15,7 +15,7 @@ def mian():
     logging.info("data sent is {}".format(raw))
     ops = raw["ops"]
     state = raw["state"]
-    
+    res = []
     if ops == '':
         return state
     elif len(ops) < 2:
