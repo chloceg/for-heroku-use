@@ -13,7 +13,7 @@ def to_cumulative():
     raw = request.get_json()
     logging.info("data sent is {}".format(raw))
     stream = raw.get("stream")
-    stream.sort(key = lambda x: x.split(',')[0])
+    stream.sort(key = lambda x: [x.split(',')[0], x.split(',')[1]])
     for i in stream:
         row = i.split(',')
         time = row[0]
