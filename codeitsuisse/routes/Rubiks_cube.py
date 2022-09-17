@@ -22,13 +22,13 @@ def mian():
     elif len(ops) < 2:
         res.append(ops[0])
     else:
-        pre = ops[0]
-        for i in ops[1:]:
-            if i == 'i':
-                res.append(pre+'i')
+        ops = ops.split('i')
+        for i, num in enumerate(ops):
+            if len(num) == 1 and i < len(ops) - 1:
+                res.append(num+'i')
             else:
-                res.append(i)
-                pre = i
+                for j in num:
+                    res.append(j)
                 
     cube = [[] for _ in range(6)]
     seq = ['f', 'b', 'l', 'r', 'u', 'd']
