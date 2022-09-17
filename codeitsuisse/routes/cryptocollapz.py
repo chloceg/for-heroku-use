@@ -9,7 +9,7 @@ from codeitsuisse import app
 logger = logging.getLogger(__name__)
 
 
-def stream_crypto_collapz(data):
+def crypto_collapz_stream(data):
     res = []
     for input in data:
         res.append(crypto_collapz_raw(input))
@@ -17,22 +17,24 @@ def stream_crypto_collapz(data):
 
 def crypto_collapz_raw(input):
     res = []
-    map = {1: 4}
+    map = {
+        1: 4
+        }
     for item in input:
-        res.append(findMax(item, map))
+        res.append(lar(item, map))
     return res
 
-def findMax(num, map):
+def lar(num, map):
     if num in map:
         return map[num]
     map[num] = num
     cur = num    
     while True:
         if int(cur)&1:
-            cur = cur * 3 + 1
+            cur = 3*cur+1
             map[num] = max(map[num], cur)   # local 
         else:
-            cur = cur // 2
+            cur = cur//2
         if cur in map:
             map[num] = max(map[num], map[cur])  # local  > current
             break
@@ -45,7 +47,7 @@ def findMax(num, map):
 def crypto_collapz():
     data = request.get_json()
     logging.info("data sent is {}".format(data))
-    r = stream_crypto_collapz(data)
+    r = crypto_collapz_stream(data)
     logging.info("my result is {}".format(r))
     return jsonify(r)
 
