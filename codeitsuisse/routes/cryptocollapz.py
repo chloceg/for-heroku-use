@@ -31,7 +31,7 @@ def max_num():
 					temp = price
 				price = collatz(price)
 			price = temp
-	return jsonify(arr.tolist())
+	return json.dumps(arr.tolist())
 
 # def max_num():
 #     res = 0
