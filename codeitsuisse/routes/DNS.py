@@ -6,9 +6,6 @@ from codeitsuisse import app
 logger = logging.getLogger(__name__)
 from codeitsuisse import app
 
-conn = sqlite3.connect('test.db')
-c = conn.cursor()
-c.execute('''CREATE TABLE if not exists lookuptable (addr text not null, ip text not null)''')
 class ListNode:
     def __init__(self, key=None, value=None):
         self.key = key
@@ -70,6 +67,9 @@ input = {
 }
 @app.route('/instantiateDNSLookup', methods=['POST'])
 def part1():
+    conn = sqlite3.connect('test.db')
+    c = conn.cursor()
+    c.execute('''CREATE TABLE if not exists lookuptable (addr text not null, ip text not null)''')
     raw = request.get_json()
     logging.info("data sent is {}".format(raw))
     input = raw["lookupTable"]
@@ -85,6 +85,8 @@ def part1():
 
 @app.route('/simulateQuery', methods=['POST'])
 def part2( ):
+    conn = sqlite3.connect('test.db')
+    c = conn.cursor()
     raw = request.get_json()
     logging.info("data sent is {}".format(raw))
     size = raw["cacheSize"]
