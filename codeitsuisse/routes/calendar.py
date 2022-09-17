@@ -183,7 +183,12 @@ def main():
         return sum(month[:m - 1]) + d
 
     part1 = calendar_cal(input)
-    part2 = [2001] + inverse_calendar(part1, 2001)
+    index = 0
+    for i in part1.split(','):
+        if i == '       ':
+            break
+        index += 1
+    part2 = [2001+index] + inverse_calendar(part1, 2001+index)
     r = {
         "part1": part1,
         "part2": part2
