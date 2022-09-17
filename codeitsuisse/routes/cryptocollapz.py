@@ -9,13 +9,13 @@ from codeitsuisse import app
 logger = logging.getLogger(__name__)
 
 
-def stream_crypto_collapz(data): # outer list
+def stream_crypto_collapz(data):
     res = []
     for input in data:
-        res.append(crypto_collapz_inner(input))
+        res.append(crypto_collapz_raw(input))
     return res
 
-def crypto_collapz_inner(input): # inner list
+def crypto_collapz_raw(input):
     res = []
     map = {1: 4}
     for item in input:
@@ -23,32 +23,33 @@ def crypto_collapz_inner(input): # inner list
     return res
 
 def findMax(num, map):
+    # Memoise past max values
     if num in map:
         return map[num]
     map[num] = num
     cur = num    
     while True:
-        if cur & 1:
+        if isOdd(cur):
             cur = cur * 3 + 1
-            map[num] = max(map[num], cur)   
+            map[num] = max(map[num], cur)   # Update local max value
         else:
-            cur = cur // 2
+            cur /= 2
         if cur in map:
-            map[num] = max(map[num], map[cur])  # Check local > current max
+            map[num] = max(map[num], map[cur])  # Check if local max > potential max
             break
         if cur == num:
             break
     return int(map[num])
 
-# def isOdd(item):
-#     return item % 2 != 0
+def isOdd(item):
+    return item % 2 != 0
 
 
 @app.route('/cryptocollapz', methods=['POST'])
 def crypto_collapz():
     data = request.get_json()
     r = stream_crypto_collapz(data)
-    return json.dumps(r)
+    return jsonify(r)
 
 # def max_num():
 # 	stream = request.get_json()
