@@ -181,6 +181,8 @@ def to_cumulative_delayed():
     r = {"output": result}
     logging.info("My part2 result :{}".format(r))
     return json.dumps(r)
+
+
     # return result
 # def to_cumulative_delayed():
 # # def to_cumulative_delayed(stream: list, quantity_block: int):
