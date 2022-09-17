@@ -12,10 +12,10 @@ logger = logging.getLogger(__name__)
 def stream_crypto_collapz(data):
     res = []
     for input in data:
-        res.append(crypto_collapz(input))
+        res.append(crypto_collapz_raw(input))
     return res
 
-def crypto_collapz(input):
+def crypto_collapz_raw(input):
     res = []
     map = {1: 4}
     for item in input:
