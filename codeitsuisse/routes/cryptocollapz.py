@@ -9,29 +9,63 @@ from codeitsuisse import app
 logger = logging.getLogger(__name__)
 
 
-def collatz(n):
-    if n % 2 == 0:
-        return n // 2
-    else:
-        return 3 * n + 1
+def stream_crypto_collapz(data):
+    res = []
+    for input in data:
+        res.append(crypto_collapz(input))
+    return res
+
+def crypto_collapz(input):
+    res = []
+    map = {1: 4}
+    for item in input:
+        res.append(findMax(item, map))
+    return res
+
+def findMax(num, map):
+    # Memoise past max values
+    if num in map:
+        return map[num]
+    map[num] = num
+    cur = num    
+    while True:
+        if isOdd(cur):
+            cur = cur * 3 + 1
+            map[num] = max(map[num], cur)   # Update local max value
+        else:
+            cur /= 2
+        if cur in map:
+            map[num] = max(map[num], map[cur])  # Check if local max > potential max
+            break
+        if cur == num:
+            break
+    return int(map[num])
+
+def isOdd(item):
+    return item % 2 != 0
 
 
 @app.route('/cryptocollapz', methods=['POST'])
-def max_num():
-	stream = request.get_json()
-	arr = np.asarray(stream)
+def crypto_collapz():
+    data = request.get_json()
+    r = stream_crypto_collapz(data)
+    return jsonify(r)
+
+# def max_num():
+# 	stream = request.get_json()
+# 	arr = np.asarray(stream)
 	
-	for price in np.nditer(arr, op_flags=['readwrite'], flags=["refs_ok"]):
-		if price == 1 or price == 2:
-			price = 4
-		else:
-			temp = price
-			while price != 1:
-				if price > temp:
-					temp = price
-				price = collatz(price)
-			price = temp
-	return json.dumps(arr.tolist())
+# 	for price in np.nditer(arr, op_flags=['readwrite'], flags=["refs_ok"]):
+# 		if price == 1 or price == 2:
+# 			price = 4
+# 		else:
+# 			temp = price
+# 			while price != 1:
+# 				if price > temp:
+# 					temp = price
+# 				price = collatz(price)
+# 			price = temp
+# 	return json.dumps(arr.tolist())
 
 # def max_num():
 #     res = 0
