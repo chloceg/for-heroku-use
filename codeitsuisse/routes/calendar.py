@@ -151,7 +151,7 @@ def main():
 
     def inverse_calendar(string,year):
         t = 0
-        list = [year]
+        list = []
         w = {'0':'','1':'','2':'','3':'','4':'','5':'','6':'','7':'','8':'','9':'','10':'','11':''}
         for i in string.split(','):
             if t == 12:
@@ -173,7 +173,7 @@ def main():
                             list.append(dayOfYear(year, int(t+1), x + 1))
                 s += 1
             t += 1
-        return list
+        return list.sort()
 
     def dayOfYear(year, month, day):
         isLeap = lambda y: y % 400 == 0 or (y % 4 == 0 and y % 100 != 0)
@@ -182,7 +182,7 @@ def main():
         return sum(month[:m - 1]) + d
 
     part1 = calendar_cal(input)
-    part2 = inverse_calendar(part1, 2001)
+    part2 = [2001] + inverse_calendar(part1, 2001)
     r = {
         "part1": part1,
         "part2": part2
