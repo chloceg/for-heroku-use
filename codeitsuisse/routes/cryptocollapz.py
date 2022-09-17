@@ -13,7 +13,7 @@ def max_num():
     output = []
     raw = request.get_json()
     logging.info("data sent is {}".format(raw))
-    nums = raw.get("input")
+    nums = raw
     for entry in nums: # entry = [6,7,8,9,10]
         temp = []
         for item in entry:
