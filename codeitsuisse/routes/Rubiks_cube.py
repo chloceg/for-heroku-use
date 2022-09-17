@@ -17,17 +17,17 @@ def mian():
     state = raw["state"]
     res = []
     if ops == '':
-        return state
+        print(state)
     elif len(ops) < 2:
         res.append(ops[0])
     else:
-        pre = ops[0]
-        for i in ops[1:]:
-            if i == 'i':
-                res.append(pre+'i')
+        ops = ops.split('i')
+        for i in ops:
+            if len(i) == 1:
+                res.append(i+'i')
             else:
-                res.append(i)
-                pre = i
+                for j in i:
+                    res.append(j)
                 
     cube = [[] for _ in range(6)]
     seq = ['f', 'b', 'l', 'r', 'u', 'd']
