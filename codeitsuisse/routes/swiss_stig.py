@@ -9,7 +9,7 @@ from codeitsuisse import app
 logger = logging.getLogger(__name__)
 
 @app.route('/stig/warmup', methods=['POST'])
-def crypto_collapz():
+def swiss_stig():
     raw = request.get_json()
     logging.info("data sent is {}".format(raw))
     questions = raw["questions"]
