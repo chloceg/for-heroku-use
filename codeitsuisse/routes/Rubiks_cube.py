@@ -17,18 +17,24 @@ def mian():
     state = raw["state"]
     res = []
     if ops == '':
-        r = {"state":state}
-        return json.dumps(r)
+        print(state)
     elif len(ops) < 2:
         res.append(ops[0])
     else:
         ops = ops.split('i')
         for i, num in enumerate(ops):
+            if num == '':
+                continue
             if len(num) == 1 and i < len(ops) - 1:
                 res.append(num+'i')
             else:
-                for j in num:
-                    res.append(j)
+                if i == len(ops) - 1: res.append(ops[i])
+                else:
+                    for idx, j in enumerate(num):
+                        if idx == len(num) - 1:
+                            res.append(j+'i')
+                        else:
+                            res.append(j)                                              
                 
     cube = [[] for _ in range(6)]
     seq = ['f', 'b', 'l', 'r', 'u', 'd']
