@@ -28,3 +28,4 @@ virtualenv==15.1.0
 virtualenv-clone==0.2.6
 Werkzeug==0.14.1
 datetime
+numpy
