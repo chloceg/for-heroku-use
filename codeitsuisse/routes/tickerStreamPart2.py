@@ -157,7 +157,6 @@ def to_cumulative_delayed():
     df[2] = df[2].astype(np.int8)
     df[3] = df[3].astype(np.float32)
     labels = df[1].unique()
-    quantity_block = 5
     result = []
     for i in labels:
         temp = df[df[1] == i]
