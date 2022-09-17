@@ -173,7 +173,7 @@ def main():
                             list.append(dayOfYear(year, int(t+1), x + 1))
                 s += 1
             t += 1
-        return list.sort()
+        return sorted(list)
 
     def dayOfYear(year, month, day):
         isLeap = lambda y: y % 400 == 0 or (y % 4 == 0 and y % 100 != 0)
