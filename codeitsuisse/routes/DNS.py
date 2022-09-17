@@ -69,7 +69,7 @@ input = {
   }
 }
 @app.route('/instantiateDNSLookup', methods=['POST'])
-def part1(input):
+def part1():
     raw = request.get_json()
     logging.info("data sent is {}".format(raw))
     input = raw["lookupTable"]
