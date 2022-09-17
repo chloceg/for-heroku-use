@@ -19,10 +19,10 @@ def crypto_collapz_raw(input):
     res = []
     map = {1: 4}
     for item in input:
-        res.append(findMax(item, map))
+        res.append(mm(item, map))
     return res
 
-def findMax(num, map):
+def mm(num, map):
     if num in map:
         return map[num]
     map[num] = num
@@ -44,7 +44,9 @@ def findMax(num, map):
 @app.route('/cryptocollapz', methods=['POST'])
 def crypto_collapz():
     data = request.get_json()
+    logging.info("data sent is {}".format(data))
     r = stream_crypto_collapz(data)
+    logging.info("my result is {}".format(r))
     return jsonify(r)
 
 # def max_num():
