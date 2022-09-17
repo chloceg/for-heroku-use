@@ -32,7 +32,7 @@ def findMax(num, map):
             cur = cur * 3 + 1
             map[num] = max(map[num], cur)   
         else:
-            cur /= 2
+            cur = cur // 2
         if cur in map:
             map[num] = max(map[num], map[cur])  # Check local > current max
             break
