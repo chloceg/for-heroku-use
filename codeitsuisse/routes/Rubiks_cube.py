@@ -15,16 +15,20 @@ def mian():
     logging.info("data sent is {}".format(raw))
     ops = raw["ops"]
     state = raw["state"]
-
-    pre = ops[0]
-    res = []
-    for i in ops[1:]:
-        if i == 'i':
-            res.append(pre+'i')
-        else:
-            res.append(i)
-            pre = i
-
+    
+    if ops == '':
+        return state
+    elif len(ops) < 2:
+        res.append(ops[0])
+    else:
+        pre = ops[0]
+        for i in ops[1:]:
+            if i == 'i':
+                res.append(pre+'i')
+            else:
+                res.append(i)
+                pre = i
+                
     cube = [[] for _ in range(6)]
     seq = ['f', 'b', 'l', 'r', 'u', 'd']
     for idx, cul in enumerate(seq):
