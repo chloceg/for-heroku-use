@@ -9,3 +9,4 @@ import codeitsuisse.routes.cryptocollapz
 import codeitsuisse.routes.calendar
 import codeitsuisse.routes.Rubiks_cube
 import codeitsuisse.routes.swiss_stig
+import codeitsuisse.routes.DNS
