@@ -158,6 +158,7 @@ def main():
                 break
             stamp = datetime.date(year, t+1, 1).weekday()
             if i == '       ':
+                t += 1
                 continue
             if i == 'alldays':
                 i = 'mtwtfss'
