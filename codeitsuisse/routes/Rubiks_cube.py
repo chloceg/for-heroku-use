@@ -19,7 +19,7 @@ def mian():
     if ops == '':
         print(state)
     elif len(ops) < 2:
-        res.append(pre)
+        res.append(ops[0])
     else:
         ops = ops.split('i')
         for i in ops:
