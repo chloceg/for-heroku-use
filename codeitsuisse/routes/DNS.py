@@ -103,7 +103,7 @@ def part2( ):
             t = cursor.fetchall()
             if len(t) == 0:
                 status = 'invalid'
-                json1.append({"status": status, "ipAddress": 'Null'})
+                json1.append({"status": status, "ipAddress": None})
             for j in t:
                 ip = j[0]
                 status = 'cache miss'
