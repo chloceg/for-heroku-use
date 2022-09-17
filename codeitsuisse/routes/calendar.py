@@ -34,7 +34,7 @@ def main():
                     temp_w = week(stamp.weekday(),i%7)
                     if len(w[m]) == 7 and w[m][(i + stamp.weekday() - 1)%7] == temp_w:
                         continue
-                    elif w[m] == 'weekdays':
+                    elif w[m] == 'weekday':
                         if ((i + stamp.weekday() - 1)%7) < 5:
                             continue
                         else:
@@ -50,7 +50,7 @@ def main():
                             #w[m][(i - 3) % 7] = week(i%7)
                             w[m] = change_str(w[m], (i + stamp.weekday() - 1) % 7, week(stamp.weekday(),i % 7))
                             continue
-                    elif w[m] != 'weekdays' and w[m] != 'weekend':
+                    elif w[m] != 'weekday' and w[m] != 'weekend':
                         #w[m][(i - 3) % 7] = week(i%7)
                         w[m] = change_str(w[m],(i + stamp.weekday() - 1) % 7, week(stamp.weekday(),i%7))
 
