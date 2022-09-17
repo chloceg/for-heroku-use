@@ -166,7 +166,7 @@ def to_cumulative_delayed():
                 cumu_national +=  round((j[1][2] * j[1][3]), 1)
                 cumu_quantity += j[1][2]
                 result.append(','.join([j[1][0], j[1][1], str(cumu_quantity), str(cumu_national)]))
-    
+                
             elif cumu_quantity + j[1][2] < quantity_block:
                 cumu_national +=  round((j[1][2] * j[1][3]), 1)
                 cumu_quantity += j[1][2]
@@ -174,6 +174,7 @@ def to_cumulative_delayed():
                 cumu_national += round((quantity_block - cumu_quantity) * j[1][3],1)
                 cumu_quantity = quantity_block
                 result.append(','.join([j[1][0], j[1][1], str(cumu_quantity), str(cumu_national)]))
+                cumu_quantity, cumu_national = 0, 0
     result.sort(key=lambda x: x.split(',')[0])
     r = {"output": result}
     logging.info("My part2 result :{}".format(r))
