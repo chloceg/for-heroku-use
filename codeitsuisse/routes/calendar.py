@@ -182,7 +182,7 @@ def main():
         return sum(month[:m - 1]) + d
 
     part1 = calendar_cal(input)
-    part2 = inverse_calendar(part1, input[0])
+    part2 = inverse_calendar(part1, 2001)
     r = {
         "part1": part1,
         "part2": part2

@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f93a891-cdbc-402d-a835-072fd816d735" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/python-student-template.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/python-student-template.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeitsuisse/routes/Rubiks_cube.py" beforeDir="false" afterPath="$PROJECT_DIR$/codeitsuisse/routes/Rubiks_cube.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codeitsuisse/routes/calendar.py" beforeDir="false" afterPath="$PROJECT_DIR$/codeitsuisse/routes/calendar.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,8 +95,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1533474856276</updated>
-      <workItem from="1663397578709" duration="1738000" />
+      <workItem from="1663397578709" duration="3439000" />
     </task>
+    <task id="LOCAL-00001" summary="rubiks">
+      <created>1663399405288</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1663399405288</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -114,5 +120,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="rubiks" />
+    <option name="LAST_COMMIT_MESSAGE" value="rubiks" />
   </component>
 </project>
