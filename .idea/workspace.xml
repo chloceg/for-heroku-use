@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f93a891-cdbc-402d-a835-072fd816d735" name="Default" comment="cal">
-      <change afterPath="$PROJECT_DIR$/codeitsuisse/routes/SocialDistancing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codeitsuisse/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/codeitsuisse/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+    <list default="true" id="2f93a891-cdbc-402d-a835-072fd816d735" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codeitsuisse/routes/DNS.py" beforeDir="false" afterPath="$PROJECT_DIR$/codeitsuisse/routes/DNS.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +187,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1533474856276</updated>
-      <workItem from="1663397578709" duration="21116000" />
+      <workItem from="1663397578709" duration="21439000" />
     </task>
     <task id="LOCAL-00001" summary="rubiks">
       <created>1663399405288</created>
@@ -247,7 +245,21 @@
       <option name="project" value="LOCAL" />
       <updated>1663427554382</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="cal">
+      <created>1663427826066</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1663427826066</updated>
+    </task>
+    <task id="LOCAL-00010" summary="cal">
+      <created>1663427998012</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1663427998012</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

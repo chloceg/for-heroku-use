@@ -94,26 +94,27 @@ def part2( ):
     size = size
     log = log
     cache = LRUCache(size)
-    json = []
+    json1 = []
     for i in log:
         if cache.get(i) == -1:
             cursor = c.execute("SELECT ip from lookuptable where addr = '" + i + "'")
             t = cursor.fetchall()
             if len(t) == 0:
                 status = 'invalid'
-                json.append({"status": status, "ipAddress": 'Null'})
+                json1.append({"status": status, "ipAddress": 'Null'})
             for j in t:
                 ip = j[0]
                 status = 'cache miss'
                 cache.put(i,ip)
-                json.append({"status": status, "ipAddress": ip})
+                json1.append({"status": status, "ipAddress": ip})
                 break
         else:
             status = 'cache hit'
             ip = cache.get(i)
-            json.append({"status": status, "ipAddress": ip})
+            json1.append({"status": status, "ipAddress": ip})
 
     conn.close()
-    return json.dumps(json)
+    logging.info("My crypto result :{}".format(json1))
+    return json.dumps(json1)
 
 
