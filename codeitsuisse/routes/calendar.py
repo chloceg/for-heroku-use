@@ -41,6 +41,7 @@ def main():
                             w[m] = 'mtwtf  '
                             #w[m][(i - 3) % 7] = week(i % 7)
                             w[m] = change_str(w[m], (i + stamp.weekday() - 1) % 7, week(stamp.weekday(),i % 7))
+                            continue
                     elif w[m] == 'weekend':
                         if ((i + stamp.weekday() - 1) % 7) >= 5:
                             continue
@@ -48,6 +49,7 @@ def main():
                             w[m] = '     ss'
                             #w[m][(i - 3) % 7] = week(i%7)
                             w[m] = change_str(w[m], (i + stamp.weekday() - 1) % 7, week(stamp.weekday(),i % 7))
+                            continue
                     elif w[m] != 'weekdays' and w[m] != 'weekend':
                         #w[m][(i - 3) % 7] = week(i%7)
                         w[m] = change_str(w[m],(i + stamp.weekday() - 1) % 7, week(stamp.weekday(),i%7))
