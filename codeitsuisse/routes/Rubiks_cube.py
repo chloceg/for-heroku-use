@@ -17,16 +17,17 @@ def mian():
     state = raw["state"]
     res = []
     if ops == '':
-        print(state)
+        r = {"state":state}
+        return json.dumps(r)
     elif len(ops) < 2:
         res.append(ops[0])
     else:
         ops = ops.split('i')
-        for i in ops:
-            if len(i) == 1:
-                res.append(i+'i')
+        for i, num in enumerate(ops):
+            if len(num) == 1 and i < len(ops) - 1:
+                res.append(num+'i')
             else:
-                for j in i:
+                for j in num:
                     res.append(j)
                 
     cube = [[] for _ in range(6)]
