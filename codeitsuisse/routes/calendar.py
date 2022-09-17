@@ -184,8 +184,8 @@ def main():
 
     part1 = calendar_cal(input)
     index = 0
-    for i in part1.split(','):
-        if i == '       ':
+    for i in part1:
+        if i == ' ':
             break
         index += 1
     part2 = [2001+index] + inverse_calendar(part1, 2001+index)
