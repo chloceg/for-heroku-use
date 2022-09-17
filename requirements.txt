@@ -29,4 +29,4 @@ virtualenv-clone==0.2.6
 Werkzeug==0.14.1
 datetime
 numpy
-pandas
+pandas==1.1.3
