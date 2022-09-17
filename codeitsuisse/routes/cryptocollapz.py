@@ -19,10 +19,10 @@ def crypto_collapz_raw(input):
     res = []
     map = {1: 4}
     for item in input:
-        res.append(mm(item, map))
+        res.append(findMax(item, map))
     return res
 
-def mm(num, map):
+def findMax(num, map):
     if num in map:
         return map[num]
     map[num] = num
