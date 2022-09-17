@@ -16,15 +16,15 @@ def mian():
     ops = raw["ops"]
     state = raw["state"]
     res = []
-    for i in range(len(ops)):
-        if i == len(ops) - 1 and ops[i] != 'i':
-            res.append(ops[i])
-        elif ops[i+1] == 'i':
+    for i in range(len(ops)-1):
+        if ops[i+1] == 'i':
             res.append(ops[i:i+2])
         elif ops[i] == 'i':
             continue
         else:
             res.append(ops[i])
+    if len(''.join(res)) < len(ops):
+        res.append(ops[-1])           
                 
     cube = [[] for _ in range(6)]
     seq = ['f', 'b', 'l', 'r', 'u', 'd']
