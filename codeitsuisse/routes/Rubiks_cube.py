@@ -1,19 +1,20 @@
 import logging
 import json
+
 from flask import request, jsonify
+
+from codeitsuisse import app
+
+logger = logging.getLogger(__name__)
+
 from codeitsuisse import app
 
 @app.route('/rubiks', methods=['POST'])
 def mian():
-    ops = 'UiD'
-    state =  {
-            "u": [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
-            "l": [[1, 1, 1], [1, 1, 1], [1, 1, 1]],
-            "f": [[2, 2, 2], [2, 2, 2], [2, 2, 2]],
-            "r": [[3, 3, 3], [3, 3, 3], [3, 3, 3]],
-            "b": [[4, 4, 4], [4, 4, 4], [4, 4, 4]],
-            "d": [[5, 5, 5], [5, 5, 5], [5, 5, 5]]
-    }  
+    raw = request.get_json()
+    logging.info("data sent is {}".format(raw))
+    ops = raw["ops"]
+    state = raw["state"]
 
     pre = ops[0]
     res = []
@@ -159,4 +160,7 @@ def mian():
         state[j][0] = cube[idx][0:3]
         state[j][1] = cube[idx][3:6]
         state[j][2] = cube[idx][6:9]
-    return state
+
+    logging.info("My state result :{}".format(state))
+    r = {"state":state}
+    return json.dumps(r)
