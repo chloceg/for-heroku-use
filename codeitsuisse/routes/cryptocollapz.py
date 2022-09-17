@@ -17,6 +17,7 @@ def max_num():
     for entry in nums: # entry = [6,7,8,9,10]
         temp = []
         for item in entry:
+            logging.info("every num is {}".format(item))
             if item == 1 or item == 2:
                 temp.append(4)
                 continue
@@ -30,6 +31,7 @@ def max_num():
                 res = max(res, x)
                 # print(res)
             temp.append(res)
+        logging.info("test for each of the list {}".format(temp))
         output.append(temp)
     r = output
     logging.info("My crypto result :{}".format(r))
