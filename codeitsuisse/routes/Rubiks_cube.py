@@ -167,5 +167,5 @@ def mian():
         state[j][2] = cube[idx][6:9]
 
     logging.info("My state result :{}".format(state))
-    r = {"state":state}
+    r = {state}
     return json.dumps(r)
